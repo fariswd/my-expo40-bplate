@@ -7,14 +7,14 @@ Sample code with TypeScript, React Hooks, and get data using fetch API.
 ```
 prettier
 react-redux
-react-thunk
+redux-thunk
+redux-persist
+add navigation v5
 ```
 
 ## Todo
 
 ```
-add navigation v5
-add persist state using redux-persist
 add tslint
 add unit test
 ```

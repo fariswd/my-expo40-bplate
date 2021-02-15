@@ -17,3 +17,15 @@ export const getUser = () => {
     }
   };
 };
+
+export const login = () => {
+  return {
+    type: 'USER_LOGIN',
+  };
+};
+
+export const logout = () => {
+  return {
+    type: 'USER_LOGOUT',
+  };
+};

@@ -2,12 +2,17 @@ import React from 'react';
 import { View, Text, Button, ActivityIndicator } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 import { increment, decrement } from '../action/counterAction';
-import { getUser } from '../action/userAction';
+import { getUser, logout } from '../action/userAction';
 import { CounterState } from '../reducer/counter';
 import { UserState } from '../reducer/user';
 import { RequestState } from '../reducer/request';
+import { NavigationProp } from '@react-navigation/native';
 
-const Home = () => {
+type Props = {
+  navigation: NavigationProp<any>;
+};
+
+const Home = (props: Props) => {
   const dispatch = useDispatch();
   const selectCounter = useSelector(
     (state: CounterState) => state.counter
@@ -43,6 +48,15 @@ const Home = () => {
         <Text>{JSON.stringify(selectUser)}</Text>
       )}
       <Button title="get user" onPress={() => dispatch(getUser())} />
+      <Button title="Logout" onPress={() => dispatch(logout())} />
+      <Button
+        title="to about"
+        onPress={() => props.navigation.navigate('About')}
+      />
+      <Button
+        title="to modal"
+        onPress={() => props.navigation.navigate('Modal')}
+      />
     </View>
   );
 };
